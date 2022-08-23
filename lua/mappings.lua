@@ -7,8 +7,8 @@ local nmap = Remap.nmap
 
 nnoremap('<leader>pv', ':Vex<CR>')
 nnoremap('<leader><CR>', ':so ~/.config/nvim/init.lua')
-nnoremap('<C-j>', ':cnext<CR>')
-nnoremap('<C-k>', ':cprev<CR>')
+nnoremap('<M-j>', ':cnext<CR>')
+nnoremap('<M-k>', ':cprev<CR>')
 
 -- Telescope commands
 nnoremap('<C-p>', '<cmd>Telescope find_files<CR>')

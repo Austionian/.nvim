@@ -62,10 +62,16 @@ local cmp = require'cmp'
   -- Setup lspconfig.
   local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
   -- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
-require("rust-tools").setup({
+  require("rust-tools").setup({
 	server = {
 		capabilities = capabilities,
 		on_attach = lsp_attach,
 	}
-})
+  })
+  require('lspconfig')["eslint"].setup({
+      server = {
+          capabilities = capabilities,
+          on_attach = lsp_attach,
+      }
+  })
 
