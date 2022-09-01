@@ -12,7 +12,6 @@ nnoremap('<C-k>', ':cprev<CR>')
 
 -- Telescope commands
 nnoremap('<C-p>', '<cmd>Telescope find_files<CR>')
-nnoremap('<M-P>', '<cmd>Telescope live_grep<cr>')
 nnoremap('<leader>ff', '<cmd>Telescope live_grep<cr>')
 nnoremap('<leader>fb', '<cmd>Telescope buffers<cr>')
 nnoremap('<leader>fh', '<cmd>Telescope help_tags<cr>')
@@ -24,3 +23,5 @@ nnoremap('<leader>y', '"+y')
 -- Easy Dragging
 vnoremap("J", ":m '>+1<CR>gv=gv")
 vnoremap("K", ":m '<-2<CR>gv=gv")
+
+-- Comment out highlighted text

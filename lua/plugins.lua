@@ -29,6 +29,7 @@ return require('packer').startup(function(use)
     'nvim-treesitter/nvim-treesitter',
     run = function() require('nvim-treesitter.install').update({ with_sync = true }) end,
   }
+  use 'nvim-treesitter/nvim-treesitter-context'
   use 'hrsh7th/cmp-nvim-lsp'
   use 'hrsh7th/cmp-buffer'
   use 'hrsh7th/cmp-path'
@@ -42,14 +43,23 @@ return require('packer').startup(function(use)
 	"windwp/nvim-autopairs",
     config = function() require("nvim-autopairs").setup() end
   }
+  use {
+    'numToStr/Comment.nvim',
+    config = function()
+        require('Comment').setup()
+    end
+  }
 
   -- Rust
   use 'simrat39/rust-tools.nvim'
   use 'rust-lang/rust.vim'
 
+  -- JS
+  use('jose-elias-alvarez/null-ls.nvim')
+  use('MunifTanjim/prettier.nvim')
+
   -- Debugging
   use 'nvim-lua/plenary.nvim'
   use 'mfussenegger/nvim-dap'
 end)
-
 
