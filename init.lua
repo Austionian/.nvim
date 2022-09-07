@@ -1,6 +1,5 @@
 require('plugins')
 require('settings')
-require('duskfox-config')
 require('lualine-config')
 require('autocompletion')
 require('rust-config')

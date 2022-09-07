@@ -10,6 +10,9 @@ nnoremap('<leader><CR>', ':so ~/.config/nvim/init.lua')
 nnoremap('<C-j>', ':cnext<CR>')
 nnoremap('<C-k>', ':cprev<CR>')
 
+-- Toggle between buffers
+nnoremap('<leader><leader>', '<c-^>')
+
 -- Telescope commands
 nnoremap('<C-p>', '<cmd>Telescope find_files<CR>')
 nnoremap('<leader>ff', '<cmd>Telescope live_grep<cr>')
