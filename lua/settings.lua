@@ -126,10 +126,15 @@ vim.cmd("colorscheme gruvbox")
 --   specs = {},
 --   groups = {},
 -- })
-
--- setup must be called before loading
+--
+-- -- setup must be called before loading
 -- vim.cmd("colorscheme carbonfox")
 
 -- AYU DARK THEME --
 -- vim.cmd("colorscheme ayu-dark")
 
+-- CATTPUCCINO --
+-- vim.g.catppuccin_flavour = "mocha"
+-- require("catppuccin").setup()
+--
+-- vim.cmd [[colorscheme catppuccin]]
