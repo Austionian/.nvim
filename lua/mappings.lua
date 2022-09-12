@@ -27,4 +27,7 @@ nnoremap('<leader>y', '"+y')
 vnoremap("J", ":m '>+1<CR>gv=gv")
 vnoremap("K", ":m '<-2<CR>gv=gv")
 
+-- Save the paste reg on paste
+xnoremap("<leader>y", "\"_dP")
+
 -- Comment out highlighted text
