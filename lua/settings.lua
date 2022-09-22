@@ -7,6 +7,7 @@ vim.o.shiftwidth = 4
 vim.o.expandtab = 4
 vim.o.smartindent = true
 vim.o.colorcolumn = 80
+vim.o.mouse = 'a'
 vim.g.mapleader = ' '
 vim.g.termguicolors = true
 vim.g.rustfmt_autosave = 1
