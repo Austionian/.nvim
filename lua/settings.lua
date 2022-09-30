@@ -13,7 +13,6 @@ vim.g.termguicolors = true
 vim.g.rustfmt_autosave = 1
 vim.g.python3_host_prog = '~/Library/Frameworks/Python.framework/Versions/3.10/bin/python3'
 vim.cmd('set signcolumn=yes')
-
 -- MATERIAL DEEP OCEAN THEME --
 -- vim.g.material_style = "deep ocean"
 -- vim.cmd('colorscheme material')
@@ -67,7 +66,7 @@ vim.cmd('set signcolumn=yes')
 require("gruvbox").setup({
   undercurl = true,
   underline = true,
-  bold = false,
+  bold = true,
   italic = false,
   strikethrough = true,
   invert_selection = false,
