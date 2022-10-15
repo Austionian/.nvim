@@ -57,6 +57,8 @@ return require('packer').startup(function(use)
     end
   }
 
+  use 'ggandor/leap.nvim'
+
   -- Rust
   use 'simrat39/rust-tools.nvim'
   use 'rust-lang/rust.vim'

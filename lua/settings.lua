@@ -13,6 +13,7 @@ vim.g.termguicolors = true
 vim.g.rustfmt_autosave = 1
 vim.g.python3_host_prog = '~/Library/Frameworks/Python.framework/Versions/3.10/bin/python3'
 vim.cmd('set signcolumn=yes')
+require('leap').add_default_mappings()
 -- MATERIAL DEEP OCEAN THEME --
 -- vim.g.material_style = "deep ocean"
 -- vim.cmd('colorscheme material')
@@ -90,7 +91,7 @@ vim.cmd("colorscheme gruvbox")
 -- vim.g.tokyonight_sidebars = { "qf", "vista_kind", "terminal", "packer" }
 --
 -- -- Load the colorscheme
--- vim.cmd[[colorscheme tokyonight]]
+-- vim.cmd[[colorscheme tokyonight-night]]
 
 -- CARBON FOX THEME --
 -- require('nightfox').setup({
