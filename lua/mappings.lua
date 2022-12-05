@@ -27,6 +27,12 @@ nnoremap('<leader>y', '"+y')
 vnoremap("J", ":m '>+1<CR>gv=gv")
 vnoremap("K", ":m '<-2<CR>gv=gv")
 
+-- Center on vert movement
+nnoremap("<C-d>", "<C-d>zz")
+nnoremap("<C-u>", "<C-u>zz")
+nnoremap("n", "nzzzv")
+nnoremap("N", "Nzzzv")
+
 -- Save the paste reg on paste
 xnoremap("<leader>y", "\"_dP")
 

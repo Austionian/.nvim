@@ -64,34 +64,34 @@ require('leap').add_default_mappings()
 -- vim.cmd('colorscheme rose-pine')
 
 -- GRUVBOX THEME --
-require("gruvbox").setup({
-  undercurl = true,
-  underline = true,
-  bold = true,
-  italic = false,
-  strikethrough = true,
-  invert_selection = false,
-  invert_signs = false,
-  invert_tabline = false,
-  invert_intend_guides = false,
-  inverse = true, -- invert background for search, diffs, statuslines and errors
-  contrast = "hard", -- can be "hard", "soft" or empty string
-  overrides = {},
-})
-vim.o.background = "dark" 
-vim.cmd("colorscheme gruvbox")
+-- require("gruvbox").setup({
+--   undercurl = true,
+--   underline = true,
+--   bold = true,
+--   italic = false,
+--   strikethrough = true,
+--   invert_selection = false,
+--   invert_signs = false,
+--   invert_tabline = false,
+--   invert_intend_guides = false,
+--   inverse = true, -- invert background for search, diffs, statuslines and errors
+--   contrast = "hard", -- can be "hard", "soft" or empty string
+--   overrides = {},
+-- })
+-- vim.o.background = "dark" 
+-- vim.cmd("colorscheme gruvbox")
 
 -- OXOCARBON THEME 
 -- vim.o.background = "dark"
 -- vim.cmd("colorscheme oxocarbon")
 
 -- TOKYO NIGHT THEME --
--- vim.g.tokyonight_style = "night"
--- vim.g.tokyonight_italic_functions = true
--- vim.g.tokyonight_sidebars = { "qf", "vista_kind", "terminal", "packer" }
---
--- -- Load the colorscheme
--- vim.cmd[[colorscheme tokyonight-night]]
+vim.g.tokyonight_style = "night"
+vim.g.tokyonight_italic_functions = true
+vim.g.tokyonight_sidebars = { "qf", "vista_kind", "terminal", "packer" }
+
+-- Load the colorscheme
+vim.cmd[[colorscheme tokyonight-night]]
 
 -- CARBON FOX THEME --
 -- require('nightfox').setup({
