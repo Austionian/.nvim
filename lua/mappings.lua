@@ -10,6 +10,8 @@ nnoremap('<leader><CR>', ':so ~/.config/nvim/init.lua<CR>')
 nnoremap('<C-j>', ':cnext<CR>')
 nnoremap('<C-k>', ':cprev<CR>')
 
+nnoremap('J', 'mzJ`z')
+
 -- Toggle between buffers
 nnoremap('<leader><leader>', '<c-^>')
 
@@ -17,9 +19,9 @@ nnoremap('<leader><leader>', '<c-^>')
 nnoremap('<leader>pe', ":Ex<CR>")
 
 -- Telescope commands
-nnoremap('<C-p>', '<cmd>Telescope find_files<CR>')
+nnoremap('<C-p>', '<cmd>Telescope git_files<CR>')
 nnoremap('<leader>ff', '<cmd>Telescope live_grep<cr>')
-nnoremap('<leader>fg', '<cmd>Telescope git_files<cr>')
+nnoremap('<leader>fp', '<cmd>Telescope find_files<cr>')
 nnoremap('<leader>fb', '<cmd>Telescope buffers<cr>')
 nnoremap('<leader>fh', '<cmd>Telescope help_tags<cr>')
 
@@ -39,3 +41,9 @@ nnoremap("N", "Nzzzv")
 
 -- Open Undo Tree
 nnoremap("<leader>u", "<cmd>UndotreeToggle<cr>")
+
+-- Paste without losing the current register
+xnoremap("<leader>p", "\"_dP")
+
+-- Find and replace all on highlighted word 
+nnoremap("<leader>s", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>")
