@@ -32,10 +32,7 @@ return require('packer').startup(function(use)
 
   -- general dev
   use 'neovim/nvim-lspconfig'
-  use {
-    'nvim-treesitter/nvim-treesitter',
-    run = function() require('nvim-treesitter.install').update({ with_sync = true }) end,
-  }
+  use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
   use 'nvim-treesitter/nvim-treesitter-context'
   use 'hrsh7th/cmp-nvim-lsp'
   use 'hrsh7th/cmp-buffer'
@@ -60,6 +57,8 @@ return require('packer').startup(function(use)
   }
 
   use 'ggandor/leap.nvim'
+  use 'mbbill/undotree'
+  use 'tpope/vim-fugitive'
 
   -- Rust
   use 'simrat39/rust-tools.nvim'

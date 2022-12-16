@@ -9,23 +9,26 @@ vim.api.nvim_command('packadd packer.nvim')
 
 local no_errors, error_msg = pcall(function()
 
-  local time
-  local profile_info
-  local should_profile = false
-  if should_profile then
-    local hrtime = vim.loop.hrtime
-    profile_info = {}
-    time = function(chunk, start)
-      if start then
-        profile_info[chunk] = hrtime()
-      else
-        profile_info[chunk] = (hrtime() - profile_info[chunk]) / 1e6
-      end
+_G._packer = _G._packer or {}
+_G._packer.inside_compile = true
+
+local time
+local profile_info
+local should_profile = false
+if should_profile then
+  local hrtime = vim.loop.hrtime
+  profile_info = {}
+  time = function(chunk, start)
+    if start then
+      profile_info[chunk] = hrtime()
+    else
+      profile_info[chunk] = (hrtime() - profile_info[chunk]) / 1e6
     end
-  else
-    time = function(chunk, start) end
   end
-  
+else
+  time = function(chunk, start) end
+end
+
 local function save_profiles(threshold)
   local sorted_times = {}
   for chunk_name, time_taken in pairs(profile_info) do
@@ -38,8 +41,10 @@ local function save_profiles(threshold)
       results[i] = elem[1] .. ' took ' .. elem[2] .. 'ms'
     end
   end
+  if threshold then
+    table.insert(results, '(Only showing plugins that took longer than ' .. threshold .. ' ms ' .. 'to load)')
+  end
 
-  _G._packer = _G._packer or {}
   _G._packer.profile_output = results
 end
 
@@ -75,6 +80,11 @@ _G.packer_plugins = {
     path = "/Users/austinrooks/.local/share/nvim/site/pack/packer/start/Comment.nvim",
     url = "https://github.com/numToStr/Comment.nvim"
   },
+  catppuccin = {
+    loaded = true,
+    path = "/Users/austinrooks/.local/share/nvim/site/pack/packer/start/catppuccin",
+    url = "https://github.com/catppuccin/nvim"
+  },
   ["cmp-buffer"] = {
     loaded = true,
     path = "/Users/austinrooks/.local/share/nvim/site/pack/packer/start/cmp-buffer",
@@ -95,11 +105,26 @@ _G.packer_plugins = {
     path = "/Users/austinrooks/.local/share/nvim/site/pack/packer/start/cmp-path",
     url = "https://github.com/hrsh7th/cmp-path"
   },
+  everforest = {
+    loaded = true,
+    path = "/Users/austinrooks/.local/share/nvim/site/pack/packer/start/everforest",
+    url = "https://github.com/sainnhe/everforest"
+  },
   ["gitsigns.nvim"] = {
     config = { "\27LJ\2\n6\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\rgitsigns\frequire\0" },
     loaded = true,
     path = "/Users/austinrooks/.local/share/nvim/site/pack/packer/start/gitsigns.nvim",
     url = "https://github.com/lewis6991/gitsigns.nvim"
+  },
+  ["gruvbox.nvim"] = {
+    loaded = true,
+    path = "/Users/austinrooks/.local/share/nvim/site/pack/packer/start/gruvbox.nvim",
+    url = "https://github.com/austionian/gruvbox.nvim"
+  },
+  ["leap.nvim"] = {
+    loaded = true,
+    path = "/Users/austinrooks/.local/share/nvim/site/pack/packer/start/leap.nvim",
+    url = "https://github.com/ggandor/leap.nvim"
   },
   ["lualine.nvim"] = {
     loaded = true,
@@ -110,6 +135,16 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/austinrooks/.local/share/nvim/site/pack/packer/start/material.nvim",
     url = "https://github.com/marko-cerovac/material.nvim"
+  },
+  neovim = {
+    loaded = true,
+    path = "/Users/austinrooks/.local/share/nvim/site/pack/packer/start/neovim",
+    url = "https://github.com/rose-pine/neovim"
+  },
+  ["neovim-ayu"] = {
+    loaded = true,
+    path = "/Users/austinrooks/.local/share/nvim/site/pack/packer/start/neovim-ayu",
+    url = "https://github.com/Shatur/neovim-ayu"
   },
   ["nightfox.nvim"] = {
     loaded = true,
@@ -147,6 +182,11 @@ _G.packer_plugins = {
     path = "/Users/austinrooks/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
     url = "https://github.com/nvim-treesitter/nvim-treesitter"
   },
+  ["nvim-treesitter-context"] = {
+    loaded = true,
+    path = "/Users/austinrooks/.local/share/nvim/site/pack/packer/start/nvim-treesitter-context",
+    url = "https://github.com/nvim-treesitter/nvim-treesitter-context"
+  },
   ["nvim-ts-autotag"] = {
     config = { "\27LJ\2\n=\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\20nvim-ts-autotag\frequire\0" },
     loaded = true,
@@ -154,9 +194,15 @@ _G.packer_plugins = {
     url = "https://github.com/windwp/nvim-ts-autotag"
   },
   ["nvim-web-devicons"] = {
-    loaded = true,
-    path = "/Users/austinrooks/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
+    loaded = false,
+    needs_bufread = false,
+    path = "/Users/austinrooks/.local/share/nvim/site/pack/packer/opt/nvim-web-devicons",
     url = "https://github.com/kyazdani42/nvim-web-devicons"
+  },
+  ["oxocarbon.nvim"] = {
+    loaded = true,
+    path = "/Users/austinrooks/.local/share/nvim/site/pack/packer/start/oxocarbon.nvim",
+    url = "https://github.com/austionian/oxocarbon.nvim"
   },
   ["packer.nvim"] = {
     loaded = true,
@@ -192,14 +238,35 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/austinrooks/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
+  },
+  ["tokyonight.nvim"] = {
+    loaded = true,
+    path = "/Users/austinrooks/.local/share/nvim/site/pack/packer/start/tokyonight.nvim",
+    url = "https://github.com/folke/tokyonight.nvim"
+  },
+  undotree = {
+    loaded = true,
+    path = "/Users/austinrooks/.local/share/nvim/site/pack/packer/start/undotree",
+    url = "https://github.com/mbbill/undotree"
+  },
+  ["vim-fugitive"] = {
+    loaded = true,
+    path = "/Users/austinrooks/.local/share/nvim/site/pack/packer/start/vim-fugitive",
+    url = "https://github.com/tpope/vim-fugitive"
+  },
+  ["vim-vsnip"] = {
+    loaded = true,
+    path = "/Users/austinrooks/.local/share/nvim/site/pack/packer/start/vim-vsnip",
+    url = "https://github.com/hrsh7th/vim-vsnip"
+  },
+  ["vim-vsnip-integ"] = {
+    loaded = true,
+    path = "/Users/austinrooks/.local/share/nvim/site/pack/packer/start/vim-vsnip-integ",
+    url = "https://github.com/hrsh7th/vim-vsnip-integ"
   }
 }
 
 time([[Defining packer_plugins]], false)
--- Config for: nvim-ts-autotag
-time([[Config for nvim-ts-autotag]], true)
-try_loadstring("\27LJ\2\n=\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\20nvim-ts-autotag\frequire\0", "config", "nvim-ts-autotag")
-time([[Config for nvim-ts-autotag]], false)
 -- Config for: gitsigns.nvim
 time([[Config for gitsigns.nvim]], true)
 try_loadstring("\27LJ\2\n6\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\rgitsigns\frequire\0", "config", "gitsigns.nvim")
@@ -212,6 +279,17 @@ time([[Config for nvim-autopairs]], false)
 time([[Config for Comment.nvim]], true)
 try_loadstring("\27LJ\2\n5\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\fComment\frequire\0", "config", "Comment.nvim")
 time([[Config for Comment.nvim]], false)
+-- Config for: nvim-ts-autotag
+time([[Config for nvim-ts-autotag]], true)
+try_loadstring("\27LJ\2\n=\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\20nvim-ts-autotag\frequire\0", "config", "nvim-ts-autotag")
+time([[Config for nvim-ts-autotag]], false)
+
+_G._packer.inside_compile = false
+if _G._packer.needs_bufread == true then
+  vim.cmd("doautocmd BufRead")
+end
+_G._packer.needs_bufread = false
+
 if should_profile then save_profiles() end
 
 end)

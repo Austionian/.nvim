@@ -6,16 +6,20 @@ local xnoremap = Remap.xnoremap
 local nmap = Remap.nmap
 
 nnoremap('<leader>pv', ':Vex<CR>')
-nnoremap('<leader><CR>', ':so ~/.config/nvim/init.lua')
+nnoremap('<leader><CR>', ':so ~/.config/nvim/init.lua<CR>')
 nnoremap('<C-j>', ':cnext<CR>')
 nnoremap('<C-k>', ':cprev<CR>')
 
 -- Toggle between buffers
 nnoremap('<leader><leader>', '<c-^>')
 
+-- Toggle to the file tree
+nnoremap('<leader>pe', ":Ex<CR>")
+
 -- Telescope commands
 nnoremap('<C-p>', '<cmd>Telescope find_files<CR>')
 nnoremap('<leader>ff', '<cmd>Telescope live_grep<cr>')
+nnoremap('<leader>fg', '<cmd>Telescope git_files<cr>')
 nnoremap('<leader>fb', '<cmd>Telescope buffers<cr>')
 nnoremap('<leader>fh', '<cmd>Telescope help_tags<cr>')
 
@@ -33,7 +37,5 @@ nnoremap("<C-u>", "<C-u>zz")
 nnoremap("n", "nzzzv")
 nnoremap("N", "Nzzzv")
 
--- Save the paste reg on paste
-xnoremap("<leader>y", "\"_dP")
-
--- Comment out highlighted text
+-- Open Undo Tree
+nnoremap("<leader>u", "<cmd>UndotreeToggle<cr>")
