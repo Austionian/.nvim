@@ -20,15 +20,15 @@ return require('packer').startup(function(use)
   use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
 
   -- themes
-  use 'marko-cerovac/material.nvim'
+  -- use 'marko-cerovac/material.nvim'
   use 'folke/tokyonight.nvim'
-  use 'rose-pine/neovim'
-  use 'austionian/gruvbox.nvim' 
-  use {'austionian/oxocarbon.nvim', run = './install.sh'}
-  use "EdenEast/nightfox.nvim"
-  use "Shatur/neovim-ayu"
-  use "sainnhe/everforest"
-  use { "catppuccin/nvim", as = "catppuccin" }
+  -- use 'rose-pine/neovim'
+  -- use 'austionian/gruvbox.nvim'
+  -- use {'austionian/oxocarbon.nvim', run = './install.sh'}
+  -- use "EdenEast/nightfox.nvim"
+  -- use "Shatur/neovim-ayu"
+  -- use "sainnhe/everforest"
+  -- use { "catppuccin/nvim", as = "catppuccin" }
 
   -- LSP 
   use {
