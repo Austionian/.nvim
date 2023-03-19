@@ -4,10 +4,10 @@ lsp.preset("recommended")
 
 lsp.ensure_installed({
   'tsserver',
-  'eslint',
-  'sumneko_lua',
   'rust_analyzer',
   'pyright',
+  'tailwindcss',
+  'prettier'
 })
 
 local cmp = require('cmp')
@@ -72,7 +72,7 @@ lsp.setup()
 -- Format on save with eslint
 vim.api.nvim_create_autocmd('BufWritePre', {
   pattern = { '*.tsx', '*.ts', '*.jsx', '*.js' },
-  command = 'silent! EslintFixAll',
+  command = 'silent! Prettier',
   group = vim.api.nvim_create_augroup('MyAutocmdsJavaScripFormatting', {}),
 })
 
